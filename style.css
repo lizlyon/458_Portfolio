@@ -1,3 +1,169 @@
-h1{
-    color:pink;
-}
+/* Stripping some default styles */
+* {
+    box-sizing: border-box;
+  }
+  
+  /* style */
+  html {
+    --spacing: 20px;
+    --font: "Open sans", sans-serif;
+  }
+  
+  html,
+  body,
+  main {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+  
+  body,
+  main {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    background-color: #fbfcfc;
+  }
+  
+  main {
+    flex: 1;
+  }
+  
+  /* Setting up the Navbar Flexboxes */
+  header {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    font-weight: lighter;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  
+  h1 {
+    position: relative;
+    top: 20px;
+    text-align: left;
+    font-size: 60px;
+    line-height: 1;
+    margin: 0;
+    font-weight: lighter;
+    font-family: var(--font);
+  }
+  
+  h2 {
+    font-family: var(--font);
+    font-weight: 2;
+    text-align: center;
+  }
+  
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  body {
+    background: radial-gradient(#e66465, #9198e5, white 100%);
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  p {
+    text-align: center;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    font-weight: 200;
+    font-family: var(--font);
+    max-width: 60ch;
+    padding: 20px;
+  }
+  
+  /* spacer class */
+  .spacer {
+    height: calc(var(--spacing) * 4);
+  }
+  
+  /* project class */
+  .project {
+    padding: var(--spacing);
+  }
+  
+  .project a {
+    color: black;
+    font-size: 1rem;
+    line-height: 1.1;
+    text-decoration: none;
+    font-family: var(--font);
+    font-weight: lighter;
+  }
+  
+  .project li {
+    padding: calc(var(--spacing) / 4) 0;
+    text-align: left;
+  }
+  
+  .project li:hover {
+    color: #d1f5ba;
+  }
+  
+  /* small screen */
+  @media only screen and (max-width: 970px) {
+    .navbar {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      list-style-type: none;
+      padding: 20px;
+    }
+  
+    .navbar a {
+      padding-left: 15px;
+      font-size: 18px;
+      text-decoration: none;
+      color: black;
+      font-family: var(--font);
+      text-align: right;
+    }
+  
+    .navbar a:hover {
+      color: #d1f5ba;
+    }
+  
+    h1 {
+      font-size: 50px;
+    }
+  }
+  
+  /* large screen */
+  @media only screen and (min-width: 970px) {
+    .navbar {
+      display: flex;
+      flex-direction: row;
+      justify-content: baseline;
+      gap: 20px;
+      list-style-type: none;
+      padding: 20px;
+    }
+  
+    .navbar a {
+      padding-left: 20px;
+      padding-right: 20px;
+      font-size: 24px;
+      text-decoration: none;
+      color: black;
+      font-family: var(--font);
+    }
+  
+    .navbar a:hover {
+      color: #d1f5ba;
+    }
+  }
+  
