@@ -5,8 +5,9 @@
   
   /* style */
   html {
-    --spacing: 20px;
+    --spacing: 10px;
     --font: "Open sans", sans-serif;
+    --color: #122759;
   }
   
   html,
@@ -23,6 +24,15 @@
     padding: 20px;
   }
   
+  .bio {
+    border: 2px solid white;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.336);
+    color: white;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  /* container setup */
   .container {
     display: flex;
     flex-direction: column;
@@ -33,31 +43,19 @@
     flex: 1;
   }
   
-  /* Setting up the Navbar Flexboxes */
+  /* Setting up the header */
   header {
     display: flex;
     flex-direction: row;
-    align-items: baseline;
     justify-content: space-between;
     font-weight: lighter;
     padding-left: 30px;
     padding-right: 30px;
   }
   
-  h1 {
-    position: relative;
-    top: 20px;
-    text-align: left;
-    font-size: 60px;
-    line-height: 1;
-    margin: 0;
-    font-weight: lighter;
-    font-family: var(--font);
-  }
-  
   h2 {
-    font-family: var(--font);
-    font-weight: 2;
+    font-family: "Syne", sans-serif;
+    font-weight: 400;
     text-align: center;
   }
   
@@ -68,67 +66,90 @@
     align-items: center;
   }
   
+  /* background gradient  */
   body {
     background: radial-gradient(#e66465, #9198e5, white 100%);
   }
   
   main {
-    padding: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
   
   p {
+    margin: 0;
+    padding: var(--spacing);
     text-align: center;
     font-size: 1.4rem;
     line-height: 1.4;
     font-weight: 200;
-    font-family: var(--font);
     max-width: 60ch;
-    padding: 20px;
   }
   
-  /* spacer class */
-  .spacer {
-    height: calc(var(--spacing) * 4);
-  }
-  
-  /* project class */
+  /* project class setup*/
   .project {
     padding: var(--spacing);
   }
   
-  .project a {
-    color: black;
-    font-size: 1rem;
-    line-height: 1.1;
-    text-decoration: none;
-    font-family: var(--font);
-    font-weight: lighter;
+  .project h2 {
+    color: var(--color);
+    margin: 0;
   }
   
-  .project li {
-    padding: calc(var(--spacing) / 4) 0;
-    text-align: left;
+  .project a {
+    color: var(--color);
+    font-size: 20px;
+    line-height: 1.1;
+    text-decoration: none;
+    font-weight: 300;
+    font-family: "Poppins", sans-serif;
   }
   
   .project li:hover {
     color: #d1f5ba;
   }
   
+  /* footer set up */
+  footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  
+  /* transition on the logo */
+  .logo {
+    transition: transform 200ms;
+    animation: fade-in 1s;
+    animation-delay: 2s;
+    animation-fill-mode: both;
+  }
+  
+  /* starting transition */
+  .wrapper:hover .logo {
+    transform: rotate(10deg);
+    transition: transform 600ms;
+  }
+  
   /* small screen */
-  @media only screen and (max-width: 970px) {
+  @media only screen and (max-width: 900px) {
     .navbar {
       display: flex;
       flex-direction: column;
       gap: 10px;
+      padding-top: 40px;
+    }
+  
+    .navbar li {
       list-style-type: none;
-      padding: 20px;
+      text-align: right;
+      padding: 5px;
     }
   
     .navbar a {
       padding-left: 15px;
       font-size: 18px;
       text-decoration: none;
-      color: black;
+      color: var(--color);
       font-family: var(--font);
       text-align: right;
     }
@@ -137,33 +158,150 @@
       color: #d1f5ba;
     }
   
-    h1 {
-      font-size: 50px;
+    .Hello {
+      position: relative;
+      top: 20px;
+      text-align: left;
+      font-size: 40px;
+      line-height: 1;
+      margin: 0;
+      font-weight: 300;
+      color: var(--color);
+      font-family: "Syne", sans-serif;
+    }
+  
+    .Hello {
+      animation: fadeIn linear 2s;
+    }
+  
+    .project h2 {
+      text-align: center;
+    }
+  
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  
+    .bio {
+      max-width: 40ch;
+      font-size: 20px;
+    }
+  
+    /* project list items  */
+    .project ol {
+      display: flex;
+      flex-direction: column;
+      justify-content: baseline;
+      gap: 5px;
+    }
+    .project li {
+      padding: calc(var(--spacing) / 2) 0;
+      list-style-type: none;
+      text-align: left;
+    }
+    .spacer {
+      height: calc(var(--spacing) * 2);
+    }
+  
+    .logo svg {
+      position: relative;
+      bottom: 20px;
+      right: 50px;
+      width: 50px;
+      height: 50px;
     }
   }
   
   /* large screen */
-  @media only screen and (min-width: 970px) {
+  @media only screen and (min-width: 900px) {
     .navbar {
       display: flex;
       flex-direction: row;
       justify-content: baseline;
+      align-items: center;
       gap: 20px;
-      list-style-type: none;
-      padding: 20px;
     }
   
     .navbar a {
       padding-left: 20px;
       padding-right: 20px;
-      font-size: 24px;
       text-decoration: none;
-      color: black;
+      list-style-type: none;
+      font-size: 24px;
+      color: var(--color);
       font-family: var(--font);
     }
   
     .navbar a:hover {
       color: #d1f5ba;
+    }
+  
+    .Hello {
+      position: relative;
+      color: var(--color);
+      top: 50px;
+      left: 20px;
+      padding-right: 20px;
+      padding-bottom: 50px;
+      text-align: left;
+      font-size: 60px;
+      line-height: 1;
+      margin: 0;
+      font-weight: 300;
+      font-family: "Syne", sans-serif;
+    }
+  
+    .Hello {
+      animation: fadeIn linear 2s;
+    }
+  
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  
+    .bio {
+      font-size: 24px;
+    }
+  
+    .project h2 {
+      font-size: 30px;
+    }
+  
+    /* project list items  */
+    .project ol {
+      display: flex;
+      flex-direction: row;
+      justify-content: baseline;
+      gap: 50px;
+    }
+    .project li {
+      padding: calc(var(--spacing) / 2) 0;
+      list-style-type: none;
+      text-align: center;
+      font-size: 24px;
+    }
+  
+    /* spacer class */
+    .spacer {
+      height: calc(var(--spacing) * 4);
+    }
+  
+    .logo svg {
+      position: relative;
+      bottom: 20px;
+      right: 50px;
+      width: 100px;
+      height: 100px;
     }
   }
   
